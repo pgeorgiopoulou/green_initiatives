@@ -1,0 +1,187 @@
+:root {
+    --color-background-1: #d8f2c7; /* Light-green shade, used for background*/
+    --color-background-2: #145514; /* Dark-green shade, used for buttons*/
+    --color-background-3: #79ae4f; /* Green used for title bar */
+    --color-background-overlay: rgba(0,0,0,0.5); /* semi-transparent black, useful for overaly*/
+    --color-background-light: #ffffff; /* Light backgrounds */
+    --color-text-light: #ffffff; /* Light tesxt*/
+    --color-error: red;
+    font-family: Arial, sans-serif;
+}
+
+html {
+    height: 100%;
+    width: 100%;
+}
+
+body {
+    margin: auto;
+    background: var(--color-background-1);
+    width: 100%;
+    height: 100%;
+}
+
+input {
+    padding: 5px;
+    max-width: 90%;
+}
+
+.error {
+    color: var(--color-error);
+}
+
+header {
+    position: sticky;
+    display: grid;
+    top: 0;
+    width: 100%;
+}
+
+.navigation {
+    text-align: left;
+    font-size: 1.5rem;
+    font-weight: bold;
+    background: var(--color-background-1);
+}
+nav {
+	a {
+		background-color: var(--color-background-2);
+		color: var(--color-text-light);
+		padding: 3px;
+        margin: 3px 5px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+        border-radius: 6px;
+	}
+}
+
+
+
+.titlebar {
+    color: var(--color-text-light);
+    background: var(--color-background-3);
+
+    min-height: 20px;
+    display: inline-block;
+
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: bold;
+
+    #titleleft {
+        float: left;
+        width: 10%;
+        height: 40px;
+    }
+
+    #titleright {
+        float: right;
+        text-align: right;
+        width: 10%;
+    }
+
+    #titlecenter {
+        float: left;
+        width: 80%
+    }
+}
+
+
+.container {
+    #loginpanel {
+        max-width: 400px;
+        max-height: 400px;
+        margin: auto;
+    }
+
+    #pagebody {
+        width: 100%;
+        height: 100%;
+        display: inline-block;
+    }
+    .containertitle {
+        font-family: Arial, sans-serif;
+        font-size: 1rem;
+        text-align: center;
+    }
+    .coloredcontainer {
+        background: var(--color-background-1);
+        margin: auto;
+    }
+    .mainarea {
+        background: var(--color-background-1);
+        height: 100%;
+        display: grid;
+        place-items: center;
+    }
+}
+
+.userinfo {
+    background: var(--color-background-2);
+    float: right;
+    position: sticky;
+    bottom: 0;
+    height: 100%;
+    text-align: center;
+    display: none; /* Set to `block` to display, `none` to hide */
+    th, td {
+        border: 1px;
+        background-color: var(--color-background-light);
+    }
+}
+#userinfotable {
+    padding: 5px;
+    padding-right: 15px;
+    max-height: 100%;
+}
+#usericondiv {
+    text-align: center;
+}
+#usericonsmall {
+    max-width: 30px;
+    max-height: 30px;
+    margin-right: 10px;
+}
+
+#usericon {
+    max-width: 100px;
+    max-height: 100px;
+    margin: 15px;
+}
+
+#userinfofooter {
+    margin-top: auto;
+}
+
+#pagebody {
+    width: 100%;
+    height: 100%;
+    margin:0px;
+}
+
+#overlay {
+  position: fixed;
+  display: none;
+  width: 40%;
+  height: 40%;
+  margin: 30%;
+  text-align: left;
+  padding: 10px;
+  background-color: var(--color-background-overlay);
+  color: var(--color-text-light);
+  cursor: pointer;
+}
+.warning {
+    font-size: 2rem;
+    color: var(--color-error);
+    background-color: var(--color-background-light);
+    text-align: center;
+    .input {
+        font-size: 1.5rem;
+        font-weight0: bold;
+        color: var(--color-text-light);
+        background-color: var(--color-error);
+        border-radius: 5px;
+    }
+}

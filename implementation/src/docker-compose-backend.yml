@@ -1,0 +1,106 @@
+services:
+    backend:
+        environment:
+          MARIADB_ROOT_PASSWORD: "$MARIADB_ROOT_PASSWORD"
+          LOCAL_BASE_DIRECTORY: "${LOCAL_BASE_DIRECTORY}"
+        ports:
+            - 10880:80
+            - 10500:5000
+        build:
+            context: ./
+            dockerfile: ./backend/Dockerfile
+        image: "backend:latest"
+        pull_policy: "build"
+        networks:
+            - "green-initiatives"
+        depends_on:
+          database:
+            condition: "service_healthy"
+        volumes:
+            - "${LOCAL_BASE_DIRECTORY}/helpers:/opt/green-initiatives/helpers"
+        restart: on-failure
+    # -------------------------
+    database:
+      environment:
+        MARIADB_ROOT_PASSWORD: "${MARIADB_ROOT_PASSWORD}"
+        LOCAL_BASE_DIRECTORY: "${LOCAL_BASE_DIRECTORY}"
+        CONTAINER_BASE_DIRECTORY: "${CONTAINER_BASE_DIRECTORY}"
+        MYSQL_BASE_DIRECTORY: "${MYSQL_BASE_DIRECTORY}"
+        MOUNTS_DIRECTORY: "${MOUNTS_DIRECTORY}"
+      volumes:
+        - "${LOCAL_BASE_DIRECTORY}/${MOUNTS_DIRECTORY}/${MYSQL_BASE_DIRECTORY}/var/lib/mysql:/var/lib/mysql"
+        - "${LOCAL_BASE_DIRECTORY}/${MOUNTS_DIRECTORY}/${MYSQL_BASE_DIRECTORY}/var/log/mysql:/var/log/mysql"
+        - "${LOCAL_BASE_DIRECTORY}/${MOUNTS_DIRECTORY}/${MYSQL_BASE_DIRECTORY}/etc/mysql:/etc/mysql"
+      depends_on:
+        database_init:
+          condition: service_completed_successfully
+      ports:
+          - 3408:3306
+      expose:
+          - 3306
+      image: "mariadb:10.10"
+      tty: true
+      stdin_open: true
+      networks:
+        - default
+        - green-initiatives
+      restart: unless-stopped
+      healthcheck:
+          test: [ "CMD-SHELL", "true;"]
+          interval: 1s
+          timeout: 3s
+          retries: 30
+
+    # -------------------------
+    database_init:
+      environment:
+        MARIADB_ROOT_PASSWORD: "${MARIADB_ROOT_PASSWORD}"
+        LOCAL_BASE_DIRECTORY: "${LOCAL_BASE_DIRECTORY}"
+        CONTAINER_BASE_DIRECTORY: "${CONTAINER_BASE_DIRECTORY}"
+        MYSQL_BASE_DIRECTORY: "${MYSQL_BASE_DIRECTORY}"
+        MOUNTS_DIRECTORY: "${MOUNTS_DIRECTORY}"
+        SHARED_DIRECTORY: "${SHARED_DIRECTORY}"
+        DONE_FILE_NAME: "${DONE_FILE_NAME}"
+        MYSQL_DIRECTORIES: "${MYSQL_DIRECTORIES}"
+      volumes:
+        - "${LOCAL_BASE_DIRECTORY}/${MOUNTS_DIRECTORY}/${MYSQL_BASE_DIRECTORY}/var/lib/mysql:${CONTAINER_BASE_DIRECTORY}/${MYSQL_BASE_DIRECTORY}/var/lib/mysql"
+        - "${LOCAL_BASE_DIRECTORY}/${MOUNTS_DIRECTORY}/${MYSQL_BASE_DIRECTORY}/var/log/mysql:${CONTAINER_BASE_DIRECTORY}/${MYSQL_BASE_DIRECTORY}/var/log/mysql"
+        - "${LOCAL_BASE_DIRECTORY}/${MOUNTS_DIRECTORY}/${MYSQL_BASE_DIRECTORY}/etc/mysql:${CONTAINER_BASE_DIRECTORY}/${MYSQL_BASE_DIRECTORY}/etc/mysql"
+        - "${LOCAL_BASE_DIRECTORY}/${MOUNTS_DIRECTORY}/${SHARED_DIRECTORY}:${CONTAINER_BASE_DIRECTORY}/${SHARED_DIRECTORY}"
+
+      image: "mariadb:10.10"
+      tty: true
+      restart: no
+      networks:
+        - green-initiatives
+      command: [ "bash", "${CONTAINER_BASE_DIRECTORY}/${SHARED_DIRECTORY}/init.sh", "-m" ]
+
+    # -------------------------
+    ui:
+      environment:
+        LOCAL_BASE_DIRECTORY: "${LOCAL_BASE_DIRECTORY}"
+        CONTAINER_BASE_DIRECTORY: "${CONTAINER_BASE_DIRECTORY}"
+        UI_BASE_DIRECTORY: "${UI_BASE_DIRECTORY}"
+        MOUNTS_DIRECTORY: "${MOUNTS_DIRECTORY}"
+      volumes:
+        - "${LOCAL_BASE_DIRECTORY}/${MOUNTS_DIRECTORY}/${UI_BASE_DIRECTORY}/bitnami/nginx/conf/my_server.conf:/opt/bitnami/nginx/conf/server_blocks/my_server.conf"
+        - "${LOCAL_BASE_DIRECTORY}/${MOUNTS_DIRECTORY}/${UI_BASE_DIRECTORY}/usr/share/nginx/html:/usr/share/nginx/html"
+      ports:
+          - 30080:80
+      image: "bitnami/nginx"
+      tty: true
+      stdin_open: true
+      networks:
+        - default
+        - frontend
+      restart: unless-stopped
+      healthcheck:
+          test: [ "CMD-SHELL", "true;"]
+          interval: 1s
+          timeout: 3s
+          retries: 30
+
+# ===========================
+networks:
+    green-initiatives: {}
+    frontend: {}

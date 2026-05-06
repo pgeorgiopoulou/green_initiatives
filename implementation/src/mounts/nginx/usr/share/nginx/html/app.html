@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Green Initiatives Home</title>
+
+  <meta charset="UTF-8" />
+  <meta name="keywords" content="green, bonds, blockchain, invest, ai">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link rel="stylesheet" href="gi_pagestyle.css">
+  <script src="gi_scripts.js"></script>
+</head>
+<body onload="checkLoggedIn('app')">
+
+  <header id="appheader" class="header app">
+    <div id="titlebar" class="titlebar">
+        <div id="titleleft">
+        </div>
+        <div id="titlecenter">
+            GREEN INITIATIVES
+        </div>
+        <div id="titleright" onclick="displaySideBar()">
+            <img id="usericonsmall" src="/images/user_image.png">
+        </div>
+    </div>
+    <div id="navigationbardiv" class="navigation">
+        <nav id=navigationbar>
+        </nav>
+    </div>
+  </header>
+
+  <div id="pagebody" class="container">
+    <div id="userinfotab" class="userinfo container">
+      <div id="usericondiv">
+          <img id="usericon" src="/images/user_image.png" alt="The user picture">
+      </div>
+      <div id="userinfotable"></div>
+      <div id="userinfofooter">
+        <button id="logoutbutton" class="logout" style="align:top;" onclick="logout()">Logout</button>
+      </div>
+    </div>
+    <div id="mainarea" class="mainarea container">
+      <div id="app" class="app container"></div>
+      <div id="overlay"></div>
+    </div>
+  </div>
+</body>
+</html>

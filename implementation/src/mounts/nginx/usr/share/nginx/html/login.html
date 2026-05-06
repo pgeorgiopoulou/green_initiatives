@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Green Initiatives LOGIN</title>
+
+  <meta charset="UTF-8">
+  <meta name="keywords" content="green, bonds, blockchain, invest, ai">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="icon" type="image/x-icon" href="/images/favicon.ico">
+  <link href="gi_pagestyle.css" rel="stylesheet">
+  <script src="gi_scripts.js"></script>
+</head>
+<body onload="checkLoggedIn('login');setupLoginLinsteners();">
+  <header id="loginheader" class="header loginpage">
+    <div id="titlebar" class="titlebar">GREEN INITIATIVES</div>
+  </header>
+
+  <div id="pagebody" class="container">
+    <div id="mainarea" class="mainarea container">
+      <fieldset id="loginpanel" class="container coloredcontainer">
+        <h2 class="containertitle">Login</h2>
+        <input id="username" placeholder="Username">
+        <input id="password" type="password" placeholder="Password">
+        <button id="login" onclick="login()" class="login button">Login</button>
+        <p id="msg" class="error"></p>
+      </fieldset>
+    </div>
+  </div>
+</body>
+</html>

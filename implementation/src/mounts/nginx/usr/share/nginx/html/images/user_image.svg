@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg5"
+   inkscape:version="1.2.2 (b0a8486541, 2022-12-01)"
+   sodipodi:docname="user_image.svg"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview7"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:showpageshadow="2"
+     inkscape:pageopacity="0.0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="mm"
+     showgrid="false"
+     showguides="true"
+     inkscape:zoom="0.91668771"
+     inkscape:cx="241.08537"
+     inkscape:cy="561.80528"
+     inkscape:window-width="2447"
+     inkscape:window-height="1416"
+     inkscape:window-x="1920"
+     inkscape:window-y="0"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="layer1">
+    <sodipodi:guide
+       position="148.26614,167.98251"
+       orientation="0,-1"
+       id="guide284"
+       inkscape:locked="false" />
+  </sodipodi:namedview>
+  <defs
+     id="defs2">
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1702">
+      <circle
+         style="fill:#808000;stroke:#000000;stroke-width:2.965;stroke-dasharray:none"
+         id="circle1704"
+         cx="101.68032"
+         cy="81.589088"
+         r="46.453529" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1706">
+      <circle
+         style="fill:#808000;stroke:#000000;stroke-width:2.965;stroke-dasharray:none"
+         id="circle1708"
+         cx="101.68032"
+         cy="81.589088"
+         r="46.453529" />
+    </clipPath>
+    <clipPath
+       clipPathUnits="userSpaceOnUse"
+       id="clipPath1710">
+      <circle
+         style="fill:#808000;stroke:#000000;stroke-width:2.965;stroke-dasharray:none"
+         id="circle1712"
+         cx="101.68032"
+         cy="81.589088"
+         r="46.453529" />
+    </clipPath>
+  </defs>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+       style="fill:#808000;stroke:#000000;stroke-width:2.965;stroke-dasharray:none"
+       id="path118"
+       cx="101.68032"
+       cy="81.589088"
+       r="46.453529"
+       clip-path="url(#clipPath1710)"
+       inkscape:export-filename="user_image.png"
+       inkscape:export-xdpi="96"
+       inkscape:export-ydpi="96" />
+    <circle
+       style="fill:#bcd35f;stroke:#000000;stroke-width:2;stroke-dasharray:none"
+       id="path282"
+       cx="101.68032"
+       cy="119.00179"
+       r="47.254555"
+       clip-path="url(#clipPath1706)" />
+    <ellipse
+       style="fill:#bcd35f;stroke:#000000;stroke-width:2;stroke-dasharray:none"
+       id="path286"
+       cx="101.68032"
+       cy="61.813099"
+       rx="18.198753"
+       ry="17.297573"
+       clip-path="url(#clipPath1702)" />
+  </g>
+</svg>
